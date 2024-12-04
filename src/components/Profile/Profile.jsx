@@ -1,4 +1,5 @@
 import profile from './Profile.module.css';
+import MyPosts from './MyPosts/MyPosts'
 
 const Profile = () => {
   return (
@@ -7,12 +8,7 @@ const Profile = () => {
         <img src='https://pbs.twimg.com/profile_banners/284131809/1591884155/1500x500' alt='img'/>
       </div>
       <div>ava + desription</div>
-      <div className={profile.posts}>
-        My posts
-        <div className={profile.item}>New post</div>
-        <div className={profile.item}>post 1</div>
-        <div className={profile.item}>post 2</div>
-      </div>
+      <MyPosts />
     </div>
   );
 };
