@@ -2,4 +2,9 @@
   grid-area: c;
   background-color: greenyellow;
   padding: 10px;
+
+}
+
+.content img {
+  max-width: 800px;
 }
