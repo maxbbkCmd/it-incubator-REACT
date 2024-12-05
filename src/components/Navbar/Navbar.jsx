@@ -1,13 +1,13 @@
-import navbar from'./Navbar.module.css';
+import navbar from "./Navbar.module.css";
 
 const Navbar = () => {
   return (
     <nav className={navbar.nav}>
       <div className={navbar.item}>
-        <a href='#1'>Profile</a>
+        <a href='/profile'>Profile</a>
       </div>
       <div className={navbar.item}>
-        <a href='#1'>Messages</a>
+        <a href='dialogs'>Messages</a>
       </div>
       <div className={navbar.item}>
         <a href='#1'>News</a>
