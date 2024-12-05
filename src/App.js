@@ -8,19 +8,19 @@ import Dialogs from "./components/Dialogs/Dialogs";
 
 const App = () => {
   return (
-    <div className='app-wrapper'>
-      <Header />
-      <Navbar />
-      {/* <Profile /> */}
-      <div className='app-wrapper-content'>
-        <BrowserRouter>
+    <BrowserRouter>
+      <div className='app-wrapper'>
+        <Header />
+        <Navbar />
+        {/* <Profile /> */}
+        <div className='app-wrapper-content'>
           <Routes>
             <Route path='/profile' element={<Profile />} />
             <Route path='/dialogs' element={<Dialogs />} />
           </Routes>
-        </BrowserRouter>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   );
 };
 
