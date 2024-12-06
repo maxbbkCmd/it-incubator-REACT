@@ -1,11 +1,21 @@
 import myposts from "./MyPosts.module.css";
-import Post from '../MyPosts/MyPost/Post'
+import Post from "./Post/Post";
 
-const Profile = () => {
+const MyPosts = () => {
   return (
-    <div>
-      My posts
-      <div>New posts</div>
+    <div className={myposts.postBlock}>
+      <h3>My posts</h3>
+
+      <div className={myposts.addBlock}>
+        <div>
+          <textarea></textarea>
+        </div>
+        <div>
+          <button>Add post</button>
+        </div>
+      </div>
+
+      <div className={myposts.newPosts}>New posts</div>
       <div className={myposts.posts}>
         <Post />
       </div>
@@ -13,4 +23,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default MyPosts;
