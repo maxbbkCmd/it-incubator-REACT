@@ -16,20 +16,39 @@ const Message = (props) => {
   return <div className={dialogs.message}>{props.message}</div>;
 };
 
+const userData = [
+  {id: 1, name: 'Max'},
+  {id: 2, name: 'Sveta'},
+  {id: 3, name: 'Arina'},
+  {id: 4, name: 'Raf'},
+  {id: 5, name: 'Cheri'},
+  {id: 6, name: 'Papa'},
+  {id: 7, name: 'Mama'},
+];
+
+const messageData = [
+  {id: 1, message: 'qqq'},
+  {id: 2, message: 'aaa'},
+  {id: 3, message: 'ssss'},
+  {id: 4, message: 'dddd'},
+];
+
+function getMessage(messages) {
+  return messages.map(message => <Message message={message.message} />)
+}
+
+function getUserId(users) {
+  return users.map(user => <DialogItem name={user.name} id={user.id} />)
+};  
+
 const Dialogs = () => {
   return (
     <div className={dialogs.dialogs}>
       <div className={dialogs.dialogsItems}>
-        <DialogItem name='Max' id='1' />
-        <DialogItem name='Sveta' id='2' />
-        <DialogItem name='Arina' id='3' />
-        <DialogItem name='Raf' id='4' />
-        <DialogItem name='Cheri' id='5' />
+        {getUserId(userData)}
       </div>
       <div className={dialogs.messages}>
-        <Message message='Hello World' />
-        <Message message='How are you' />
-        <Message message='How is yot it camasutra' />
+        {getMessage(messageData)}
       </div>
     </div>
   );
