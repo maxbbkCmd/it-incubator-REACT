@@ -7,7 +7,9 @@ import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
 
 const App = (props) => {
+
   return (
+
     <BrowserRouter>
       <div className='app-wrapper'>
         <Header />
@@ -15,8 +17,8 @@ const App = (props) => {
         {/* <Profile /> */}
         <div className='app-wrapper-content'>
           <Routes>
-            <Route path='/profile' element={<Profile posts={props.posts} />} />
-            <Route path='/dialogs/*' element={<Dialogs userData={props.userData} messageData={props.MessageData} />} />
+            <Route path='/profile' element={<Profile posts={props.state.profilePage} />} />
+            <Route path='/dialogs/*' element={<Dialogs messages={props.state.messagePage} dialogs={props.state.messagePage} />} />
           </Routes>
         </div>
       </div>
