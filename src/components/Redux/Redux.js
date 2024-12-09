@@ -1,3 +1,5 @@
+import { rerender } from '../../render';
+
 let state = {
   profilePage: {
     posts: [
@@ -23,8 +25,16 @@ let state = {
       { id: 4, message: "dddd" },
     ],
   }
- 
-
 };
 
 export default state;
+
+export const addPost = (postMessage) => {
+  let newOnj = {
+    id: 45,
+    message: postMessage,
+    likesCount: 3
+  }
+  state.profilePage.posts.push(newOnj)
+  rerender(state)
+}
