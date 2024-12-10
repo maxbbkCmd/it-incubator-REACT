@@ -1,4 +1,7 @@
+const ADD_POST = 'ADD-POST';
+
 const store = {
+
   _state: {
     profilePage: {
       posts: [
@@ -25,23 +28,13 @@ const store = {
       ],
     }
   },
-  _callSubscriber () {
+  _callSubscriber() {
     console.log('State changed');
   },
 
   getState() {
     return this._state
   },
-  // addPost(postMessage) {
-
-  //   let newOnj = {
-  //     id: 45,
-  //     message: postMessage,
-  //     likesCount: 3
-  //   }
-  //   this._state.profilePage.posts.push(newOnj)
-  //   this._callSubscriber(this._state)
-  // },
 
   subscribe (observer) {
     this._callSubscriber = observer;
@@ -49,7 +42,7 @@ const store = {
   
 
   dispatch(action) {
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
         let newOnj = {
           id: this._state.profilePage.posts.length + 1,
           message: action.text,
@@ -60,6 +53,11 @@ const store = {
     }
   }
 };
+
+export const addPostActionCreate = (text) => ({
+  type: 'ADD-POST',
+  text: text
+});
 
 export default store;
 window.store = store;
