@@ -45,7 +45,7 @@ const store = {
 
   subscribe (observer) {
     this._callSubscriber = observer;
-  },
+  }, 
   
 
   dispatch(action) {
