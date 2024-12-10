@@ -1,7 +1,7 @@
 import React from 'react';
 import myposts from "./MyPosts.module.css";
 import Post from "./Post/Post";
-import { addPostActionCreate } from '../../Redux/state';
+import { addPostCreator } from '../../Redux/state';
 
 const MyPosts = (props) => {
 
@@ -10,10 +10,8 @@ const MyPosts = (props) => {
   
   const addPost = () => {
     let text = newPostElement.current.value
-    props.dispatch(addPostActionCreate(text)) 
+    props.dispatch(addPostCreator(text)) 
   };
-
-
 
   return (
     <div className={myposts.postBlock}>
