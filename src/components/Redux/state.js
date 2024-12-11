@@ -1,6 +1,5 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY";
-const SEND_MESSAGE = "SEND_MESSAGE";
+import dialogReducer from "./dialog-reducer";
+import profileReducer from "./profile-reducer";
 
 const store = {
   _state: {
@@ -43,40 +42,12 @@ const store = {
   },
 
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newOnj = {
-        id: this._state.profilePage.posts.length + 1,
-        message: action.text,
-        likesCount: 3,
-      };
-      this._state.profilePage.posts.push(newOnj);
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      this._state.messagePage.newMessageBody = action.body;
-      this._callSubscriber(this._state);
-    } else if (action.type === SEND_MESSAGE) {
-      let body = this._state.messagePage.newMessageBody;
-      this._state.messagePage.newMessageBody = "";
-      this._state.messagePage.messages.push({ id: 6, message: body });
-      this._callSubscriber(this._state);
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagePage = dialogReducer(this._state.messagePage, action);
+
+    this._callSubscriber(this._state);
   },
 };
-
-export const addPostCreator = (text) => ({
-  type: ADD_POST,
-  text: text,
-});
-
-export const updateNewMessageBodyCreator = (body) => ({
-  type: UPDATE_NEW_MESSAGE_BODY,
-  body: body,
-});
-
-export const sendMessageCreator = (text) => ({
-  type: SEND_MESSAGE,
-  text: text,
-});
 
 export default store;
 window.store = store;
