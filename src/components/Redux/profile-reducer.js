@@ -1,6 +1,14 @@
 const ADD_POST = "ADD-POST";
 
-const profileReducer = (state, action) => {
+const initialState = {
+  posts: [
+    { id: 1, message: "Say Hello!!!", likesCount: 42 },
+    { id: 2, message: "Say Hello!!!!!!!!!!!!!!", likesCount: 23 },
+    { id: 3, message: "Say Hello!!!!!!!!!!!!!!!!!", likesCount: 11 },
+  ],
+};
+
+const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST:
       let newOnj = {
